@@ -18,13 +18,10 @@ namespace MinerGame
         KeyboardState currentKeyboardState;
         //KeyboardState previousKeyboardState;
         MouseState currentMouseState;
-<<<<<<< HEAD
         MouseState previousMouseState;
         GameWorld MyWorld;
         
-=======
         //MouseState previousMouseState;
->>>>>>> 54036231d9d2cdc87a1df55a0e27b267ac0833d5
         List<Wall> Walls = new List<Wall>();
 
         private Camera Camera;
@@ -58,13 +55,7 @@ namespace MinerGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-<<<<<<< HEAD
-            GameWorld gameWorld = new GameWorld(this);
-=======
-            player = new Rig(Content.Load<Texture2D>("sprites/sHull_Base"));
-            player.Position = new Vector2((ScreenWidth / 2) - (player.Width / 2),
-                (ScreenHeight / 2) - (player.Height / 2));
->>>>>>> 54036231d9d2cdc87a1df55a0e27b267ac0833d5
+            MyWorld = new GameWorld(this);
             base.Initialize();
         }
 
@@ -126,7 +117,7 @@ namespace MinerGame
             currentMouseState = Mouse.GetState();
             UpdateRig(gameTime);
             CollisionChecks();
-            Camera.Follow(player);
+            Camera.Follow(MyWorld.Player);
             base.Update(gameTime);
         }
 
@@ -142,14 +133,14 @@ namespace MinerGame
             {
                 wall.Draw(gameTime, spriteBatch);
             }
-            player.Draw(gameTime, spriteBatch);
+            MyWorld.Player.Draw(gameTime, spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
         private void UpdateRig(GameTime gameTime)
         {
-            player.Move(currentKeyboardState);
+            MyWorld.Player.Move(currentKeyboardState);
         }
 
         private void CreateRoom(int width, int height, Vector2 startPos)
@@ -171,12 +162,12 @@ namespace MinerGame
                 }
             }
 
-            MyWorld.Player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
-                startPos.Y + (16 * (height / 2)) - (player.Height / 2));
+            MyWorld.Player.Position = new Vector2(startPos.X + (16 * (width / 2) - (MyWorld.Player.Width / 2)),
+                startPos.Y + (16 * (height / 2)) - (MyWorld.Player.Height / 2));
            }
         private void CollisionChecks()
         {
-            Rectangle PlayerHitMask_Body = player.Rectangle;
+            Rectangle PlayerHitMask_Body = MyWorld.Player.Rectangle;
             for(int i = 0; i < Walls.Count; i ++)
             {
                 Wall wall = Walls[i];

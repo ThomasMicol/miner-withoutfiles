@@ -50,7 +50,6 @@
     <Compile Include="FuelTank\FuelTank.cs" />
     <Compile Include="FuelTank\FuelTank_Stone.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameWorld.cs" />
     <Compile Include="Hulls\Hull.cs" />
     <Compile Include="Hulls\Hull_BrittleStone.cs" />
     <Compile Include="Inventory.cs" />

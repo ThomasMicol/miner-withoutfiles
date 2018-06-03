@@ -55,7 +55,8 @@ namespace MinerGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            MyWorld = new GameWorld(this);
+            Component.Context = this;
+            MyWorld = new GameWorld();
             base.Initialize();
         }
 
@@ -76,7 +77,7 @@ namespace MinerGame
                 for(int j = 0; j < WallCountHeight; j ++)
                 {
                     Vector2 wallPosition = new Vector2(0 + (16 * i), 0 + (16 * j));
-                    Wall wall = new Wall(Content.Load<Texture2D>("sprites/sWall"));
+                    Wall wall = new Wall();
                     wall.Position = wallPosition;
                     Walls.Add(wall);
                 }
@@ -129,6 +130,7 @@ namespace MinerGame
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(transformMatrix: Camera.Transform);
+            MyWorld.Draw(gameTime, spriteBatch);
             foreach(Wall wall in Walls)
             {
                 wall.Draw(gameTime, spriteBatch);

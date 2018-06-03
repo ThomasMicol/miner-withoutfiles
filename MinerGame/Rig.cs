@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public class Rig:Sprite
+    public class Rig: Sprite
     {
         protected Drill Drill;
         protected Hull Hull;
@@ -24,9 +24,11 @@ namespace MinerGame
         protected string Battery;
         public float MoveSpeed = 2f;
 
-        public Rig(Texture2D texture)
-            : base(texture)
+        public Rig()
         {
+            Texture = Context.Content.Load<Texture2D>("sprites/sHull_Base");
+            Position = new Vector2((Game1.ScreenWidth / 2) - (Width / 2),
+                (Game1.ScreenHeight / 2) - (Height / 2));
             SetFuelTank();
         }
         public Hull SetHull()
@@ -69,6 +71,11 @@ namespace MinerGame
                 velocity.Y += MoveSpeed;
 
             Position += velocity;
+        }
+
+        public void Draw(GameTime aTime)
+        {
+
         }
     }
 }

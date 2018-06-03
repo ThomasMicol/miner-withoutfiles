@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="World\Chunk.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Descriptor.cs" />
@@ -50,7 +51,7 @@
     <Compile Include="FuelTank\FuelTank.cs" />
     <Compile Include="FuelTank\FuelTank_Stone.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameWorld.cs" />
+    <Compile Include="World\GameWorld.cs" />
     <Compile Include="Hulls\Hull.cs" />
     <Compile Include="Hulls\Hull_BrittleStone.cs" />
     <Compile Include="Inventory.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Rig.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="Wall.cs" />
+    <Compile Include="World\Tiles\ITile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

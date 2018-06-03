@@ -37,10 +37,5 @@ namespace MinerGame
         {
 
         }
-
-        public Sprite(Texture2D texture)
-        {
-            Texture = texture;
-        }
     }
 }

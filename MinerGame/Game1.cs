@@ -66,19 +66,7 @@ namespace MinerGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Vector2 rigPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
-
-            int wallCountWidth = graphics.PreferredBackBufferWidth / 16;
-            int WallCountHeight = graphics.PreferredBackBufferHeight / 16;
-            for (int i = 0; i < wallCountWidth; i ++)
-            {
-                for(int j = 0; j < WallCountHeight; j ++)
-                {
-                    Vector2 wallPosition = new Vector2(0 + (16 * i), 0 + (16 * j));
-                    Wall wall = new Wall();
-                    wall.Position = wallPosition;
-                    //Walls.Add(wall);
-                }
-            }
+            
 
             CreateRoom(8, 8, new Vector2(32, 32));
 

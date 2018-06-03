@@ -11,5 +11,9 @@ namespace MinerGame.World
     {
         public SpawnChunk() : base(new Vector2(0, 0)){}
 
+        protected override void GenerateChunkContent()
+        {
+            return;
+        }
     }
 }

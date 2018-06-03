@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    class Wall:Sprite, ITile
+    class Wall: Sprite, ITile
     {
-        public Wall()
+        public Wall(Vector2 aPosition)
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sWall");
+            Position = aPosition;
         }
     }
 }

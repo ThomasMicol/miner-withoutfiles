@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MinerGame.World;
 using System.Collections.Generic;
 
 namespace MinerGame
@@ -26,14 +27,15 @@ namespace MinerGame
             {
                 aDrawable.Draw(aTime, batch);
             }
-           // foreach(Chunk aChunk in MyChunks)
-           // {
-           //     aChunk.Draw(aTime, batch);
-           // }
+            foreach (Chunk aChunk in MyChunks)
+            {
+                aChunk.Draw(aTime, batch);
+            }
         }
 
         protected void GenerateWorld()
         {
+            MyChunks.Add(new SpawnChunk());
             GenerateChunk(1, 1);
             GenerateChunk(1, 0);
             GenerateChunk(1, -1);

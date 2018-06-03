@@ -9,8 +9,8 @@ namespace MinerGame
     {
         protected Vector2 Position;
         protected List<ITile> MyTiles = new List<ITile>();
-        protected static int Height = 32;
-        protected static int Width = 32;
+        protected static int Height = 16;
+        protected static int Width = 16;
         protected int TileWidth;
         protected int TileHeight;
 

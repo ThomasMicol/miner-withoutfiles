@@ -72,5 +72,10 @@ namespace MinerGame
                 }
             }
         }
+
+        public List<ITile> GetTiles()
+        {
+            return MyTiles;
+        }
     }
 }

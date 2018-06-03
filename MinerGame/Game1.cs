@@ -99,10 +99,8 @@ namespace MinerGame
 
             MouseState mousePos = Mouse.GetState();
             // TODO: Add your update logic here
-            currentKeyboardState = Keyboard.GetState();
-            currentMouseState = Mouse.GetState();
-            UpdateRig(gameTime);
-            CollisionChecks();
+            MyWorld.Update(gameTime);
+            //CollisionChecks();
             Camera.Follow(MyWorld.Player);
             base.Update(gameTime);
         }
@@ -124,11 +122,6 @@ namespace MinerGame
             //player.GetDrill().Draw(gameTime, spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
-        }
-
-        private void UpdateRig(GameTime gameTime)
-        {
-            MyWorld.Player.Move(currentKeyboardState);
         }
         private void CollisionChecks()
         {

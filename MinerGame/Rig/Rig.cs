@@ -15,6 +15,7 @@ namespace MinerGame
     {
         protected RigComponentController Components;
         public float MoveSpeed = 2f;
+        protected bool Drilling = false;
 
 
         public Rig()
@@ -58,6 +59,12 @@ namespace MinerGame
                 //Rotation = 270f;
                 velocity.Y += MoveSpeed;
             }
+
+            if (key.IsKeyDown(Keys.Z))
+            {
+                Drilling = true;
+            }
+            else Drilling = false;
                 
 
             Position += velocity;
@@ -81,6 +88,16 @@ namespace MinerGame
                 SpriteEffects.None, 0f);
 
             Components.DrawComponents(aTime, batch, Position);
+        }
+
+        public bool GetDrilling()
+        {
+            return Drilling;
+        }
+
+        public RigComponentController GetComponents()
+        {
+            return Components;
         }
     }
 }

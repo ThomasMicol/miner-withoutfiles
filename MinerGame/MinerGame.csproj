@@ -71,6 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rig\Rig.cs" />
     <Compile Include="Sprite.cs" />
+    <Compile Include="World\Tiles\Ores\Coal.cs" />
+    <Compile Include="World\Tiles\Ores\Iron.cs" />
+    <Compile Include="World\Tiles\Ores\Mineable.cs" />
+    <Compile Include="World\Tiles\Ores\Silver.cs" />
     <Compile Include="World\Tiles\Wall.cs" />
     <Compile Include="World\SpawnChunk.cs" />
     <Compile Include="World\Tiles\ITile.cs" />

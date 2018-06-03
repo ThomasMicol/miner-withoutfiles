@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public class Item
+    public class Item : Sprite
     {
         protected string Name;
         protected string Description;

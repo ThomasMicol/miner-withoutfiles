@@ -12,19 +12,35 @@ namespace MinerGame
         protected int Capacity;
         public void AddItem(Item item)
         {
-
+            bool found = false;
             if ( Items.Count > 0 )
             {
                 foreach(Item _item in Items)
                 {
                     List<Item> tempItemList = Items.Where(_i => _i.GetName() == item.GetName()).ToList();
+
+                    foreach(Item tempItem in tempItemList)
+                    {
+                        if(tempItem.GetCount() < tempItem.GetStackSize())
+                        {
+                            tempItem.AddCount(1);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) break;
                 }
             }
-            if ( Items.Count < Capacity)
+
+
+            if ( !found )
             {
-                Items.Add(item);
+                if (Items.Count < Capacity)
+                {
+                    Items.Add(item);
+                    item.AddCount(1);
+                }
             }
-            
         }
 
         public void RemoveItem(Item item)

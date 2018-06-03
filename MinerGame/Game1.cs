@@ -168,7 +168,7 @@ namespace MinerGame
 
         private void CollisionChecks()
         {
-            Rectangle DrillHitMask = player.GetDrill().Rectangle;
+            /*Rectangle DrillHitMask = player.GetDrill().Rectangle;
             for(int i = 0; i < Walls.Count; i ++)
             {
                 Wall wall = Walls[i];
@@ -177,7 +177,7 @@ namespace MinerGame
                 {
                     Walls.RemoveAt(i);
                 }
-            }
+            }*/
         }
     }
 }

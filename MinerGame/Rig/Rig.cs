@@ -25,19 +25,10 @@ namespace MinerGame
             Components = new RigComponentController();
             Components.SetFuelTank(new FuelTank_Stone());
             Components.SetDrill(new Drill_BrittleStone());
+            Components.SetTracks(new Track_Stone());
+            CalculateMoveSpeed();
         }
 
-        public void SetTracks()
-        {
-            Track_Stone track = new Track_Stone();
-            MoveSpeed = track.GetSpeed();
-            Tracks = track;
-        }
-
-        public void SetDrill()
-        {
-            Drill = new Drill_BrittleStone();
-        }
 
         public void Move(KeyboardState key)
         {
@@ -69,7 +60,12 @@ namespace MinerGame
                 
 
             Position += velocity;
-            //Drill.Position = new Vector2(Position.X + 4, Position.Y);
+            // Drill.Position = new Vector2(Position.X + 4, Position.Y);
+        }
+
+        public void CalculateMoveSpeed()
+        {
+            MoveSpeed = Components.GetTracks().GetSpeed();
         }
 
         public override void Draw(GameTime aTime, SpriteBatch batch)

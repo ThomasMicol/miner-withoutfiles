@@ -31,8 +31,6 @@ namespace MinerGame
                     if (found) break;
                 }
             }
-
-
             if ( !found )
             {
                 if (Items.Count < Capacity)
@@ -55,7 +53,7 @@ namespace MinerGame
 
         public int GetSize()
         {
-            return 0;
+            return Items.Count;
         }
 
         public Inventory()

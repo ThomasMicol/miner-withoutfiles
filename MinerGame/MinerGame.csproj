@@ -44,6 +44,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Item_Iron.cs" />
     <Compile Include="Rig\Components\Battery\Battery.cs" />
     <Compile Include="Rig\Components\Cargo\Cargo.cs" />
     <Compile Include="Rig\Components\Cargo\Cargo_Stone.cs" />

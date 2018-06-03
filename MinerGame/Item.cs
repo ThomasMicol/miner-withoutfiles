@@ -15,13 +15,13 @@ namespace MinerGame
         protected int Count;
         protected int StackSize;
 
-        public Item(string name, string description, string rarity, int value, int stackSize)
+        public Item()
         {
-            Name = name;
-            Description = description;
-            Rarity = rarity;
-            Value = value;
-            StackSize = stackSize;
+            Name = "name";
+            Description = "description";
+            Rarity = "rarity";
+            Value = 1;
+            StackSize = 1;
             Count = 0;
         }
 

@@ -26,6 +26,7 @@ namespace MinerGame
             Components.SetFuelTank(new FuelTank_Stone());
             Components.SetDrill(new Drill_BrittleStone());
             Components.SetTracks(new Track_Stone());
+            Components.SetCargo(new Cargo_Stone());
             CalculateMoveSpeed();
         }
 

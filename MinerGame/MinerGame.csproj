@@ -42,25 +42,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Rig\Components\Battery\Battery.cs" />
+    <Compile Include="Rig\Components\Cargo\Cargo.cs" />
+    <Compile Include="Rig\Components\Engine\Engine.cs" />
+    <Compile Include="Rig\Components\FlashLight\FlashLight.cs" />
+    <Compile Include="Rig\Components\RigComponent.cs" />
+    <Compile Include="Rig\Components\Radiator\Radiator.cs" />
+    <Compile Include="Rig\Components\RigComponentController.cs" />
+    <Compile Include="Rig\Components\Tracks\Tracks.cs" />
     <Compile Include="World\Chunk.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Descriptor.cs" />
-    <Compile Include="Drills\Drill.cs" />
-    <Compile Include="Drills\Drill_BrittleStone.cs" />
-    <Compile Include="FuelTank\FuelTank.cs" />
-    <Compile Include="FuelTank\FuelTank_Stone.cs" />
+    <Compile Include="Rig\Components\Drills\Drill.cs" />
+    <Compile Include="Rig\Components\Drills\Drill_BrittleStone.cs" />
+    <Compile Include="Rig\Components\FuelTank\FuelTank.cs" />
+    <Compile Include="Rig\Components\FuelTank\FuelTank_Stone.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="World\GameWorld.cs" />
-    <Compile Include="Hulls\Hull.cs" />
-    <Compile Include="Hulls\Hull_BrittleStone.cs" />
-    <Compile Include="Inventory.cs" />
+    <Compile Include="Rig\Components\Hulls\Hull.cs" />
+    <Compile Include="Rig\Components\Hulls\Hull_BrittleStone.cs" />
+    <Compile Include="Rig\Inventory.cs" />
     <Compile Include="Materials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rig.cs" />
+    <Compile Include="Rig\Rig.cs" />
     <Compile Include="Sprite.cs" />
-    <Compile Include="Wall.cs" />
+    <Compile Include="World\Tiles\Wall.cs" />
+    <Compile Include="World\SpawnChunk.cs" />
     <Compile Include="World\Tiles\ITile.cs" />
   </ItemGroup>
   <ItemGroup>

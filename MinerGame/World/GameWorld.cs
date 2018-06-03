@@ -16,6 +16,8 @@ namespace MinerGame
             GenerateWorld();
             Player = new Rig();
             cursor = new Cursor();
+            MyDrawables.Add(Player);
+            MyDrawables.Add(cursor);
         }
 
         public void Draw(GameTime aTime, SpriteBatch batch)
@@ -24,6 +26,10 @@ namespace MinerGame
             {
                 aDrawable.Draw(aTime, batch);
             }
+           // foreach(Chunk aChunk in MyChunks)
+           // {
+           //     aChunk.Draw(aTime, batch);
+           // }
         }
 
         protected void GenerateWorld()
@@ -40,7 +46,7 @@ namespace MinerGame
 
         protected void GenerateChunk(int x, int y)
         {
-            MyChunks.Add(new Chunk(new Point(x, y)));
+            MyChunks.Add(new Chunk(new Vector2(x, y)));
         }
 
     }

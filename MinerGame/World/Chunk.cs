@@ -7,14 +7,14 @@ namespace MinerGame
 {
     class Chunk : Component
     {
-        protected Point Position;
+        protected Vector2 Position;
         protected List<ITile> MyTiles = new List<ITile>();
         protected static int Height = 32;
         protected static int Width = 32;
         protected int TileWidth;
         protected int TileHeight;
 
-        public Chunk(Point aPos)
+        public Chunk(Vector2 aPos)
         {
             Position = aPos;
             GenerateChunkContent();

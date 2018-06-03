@@ -13,7 +13,7 @@ namespace MinerGame
 {
     public class Rig: Sprite
     {
-        protected RigComponentController RigComponentController;
+        protected RigComponentController Components;
         public float MoveSpeed = 2f;
 
 
@@ -22,9 +22,9 @@ namespace MinerGame
             Texture = Context.Content.Load<Texture2D>("sprites/sHull_Base");
             Position = new Vector2((Game1.ScreenWidth / 2) - (Width / 2),
                 (Game1.ScreenHeight / 2) - (Height / 2));
-            RigComponentController = new RigComponentController();
-            RigComponentController.SetFuelTank(new FuelTank_Stone());
-            RigComponentController.SetDrill(new Drill_BrittleStone());
+            Components = new RigComponentController();
+            Components.SetFuelTank(new FuelTank_Stone());
+            Components.SetDrill(new Drill_BrittleStone());
         }
         
         public void SetOrigin()
@@ -62,7 +62,7 @@ namespace MinerGame
                 1f,
                 SpriteEffects.None, 0f);
 
-            RigComponentController.DrawComponents(aTime, batch, Position);
+            Components.DrawComponents(aTime, batch, Position);
         }
     }
 }

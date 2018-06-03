@@ -42,8 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Rig\Components\Battery\Battery.cs" />
     <Compile Include="Rig\Components\Cargo\Cargo.cs" />
+    <Compile Include="Rig\Components\Cargo\Cargo_Stone.cs" />
     <Compile Include="Rig\Components\Engine\Engine.cs" />
     <Compile Include="Rig\Components\FlashLight\FlashLight.cs" />
     <Compile Include="Rig\Components\RigComponent.cs" />
@@ -63,7 +66,6 @@
     <Compile Include="World\GameWorld.cs" />
     <Compile Include="Rig\Components\Hulls\Hull.cs" />
     <Compile Include="Rig\Components\Hulls\Hull_BrittleStone.cs" />
-    <Compile Include="Rig\Inventory.cs" />
     <Compile Include="Materials.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

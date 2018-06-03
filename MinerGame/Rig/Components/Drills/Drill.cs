@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace MinerGame.Drills
 {
     public abstract class Drill : RigComponent
     {
-
         protected int Damage;
 
         public Drill()
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
+            ComponentOffset = new Vector2(11, 4);
             SetOrigin();
         }
 

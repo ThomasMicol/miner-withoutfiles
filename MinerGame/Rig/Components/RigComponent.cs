@@ -6,6 +6,7 @@ namespace MinerGame
     public class RigComponent : Sprite
     {
         protected Vector2 RigLocation = new Vector2(0,0);
+        protected Vector2 ComponentOffset = new Vector2(0, 0);
         protected float PowerUsage;
         protected float HeatGenerated;
         protected float Weight;
@@ -31,7 +32,22 @@ namespace MinerGame
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //spriteBatch
+            if (Texture == null)
+            {
+                return;
+            }
+            else
+            {
+                spriteBatch.Draw(Texture,
+                RigLocation + ComponentOffset,
+                null,
+                Color.White,
+                0f,
+                Vector2.Zero,
+                1f,
+                SpriteEffects.None, 0f);
+            }
+            
         }
 
         public override void Update(GameTime gameTime)

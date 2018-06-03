@@ -15,7 +15,7 @@ namespace MinerGame
             Value = 10;
             Count = 0;
             Rarity = "Common";
-            StackSize = 20;
+            StackSize = 15;
         }
     }
 }

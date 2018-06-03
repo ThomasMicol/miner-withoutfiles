@@ -14,6 +14,9 @@ namespace MinerGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        internal GameWorld MyWorld { get; private set; }
+
         public Rig player;
         KeyboardState currentKeyboardState;
         //KeyboardState previousKeyboardState;
@@ -54,8 +57,7 @@ namespace MinerGame
             // TODO: Add your initialization logic here
             Component.Context = this;
             MyWorld = new GameWorld();
-            player = new Rig(Content.Load<Texture2D>("sprites/sHull_Base"));
-            player.SetDrill(Content.Load<Texture2D>("sprites/sDrill_Stone"));
+            player = new Rig();
             player.Position = new Vector2((ScreenWidth / 2) - (player.Width / 2),
                 (ScreenHeight / 2) - (player.Height / 2));
             base.Initialize();

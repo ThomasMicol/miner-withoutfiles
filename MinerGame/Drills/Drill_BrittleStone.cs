@@ -9,9 +9,9 @@ namespace MinerGame.Drills
 {
     class Drill_BrittleStone:Drill
     {
-        public Drill_BrittleStone(Texture2D texture)
-            : base(texture)
+        public Drill_BrittleStone()
         {
+            Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
             //SetFuelTank();
         }
         public override void Initialize()

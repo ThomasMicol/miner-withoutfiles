@@ -30,6 +30,7 @@ namespace MinerGame
             Position = new Vector2((Game1.ScreenWidth / 2) - (Width / 2),
                 (Game1.ScreenHeight / 2) - (Height / 2));
             SetFuelTank();
+            SetDrill();
         }
 
         public Hull SetHull()
@@ -38,17 +39,15 @@ namespace MinerGame
             hull.Initialize();
             return hull;
         }
+
+        public void SetDrill()
+        {
+            Drill = new Drill_BrittleStone();
+        }
+        
         public void SetOrigin()
         {
             // comment
-        }
-
-        public Drill SetDrill(Texture2D texture)
-        {
-            Drill drill = new Drill_BrittleStone(texture);
-            drill.Initialize();
-            Drill = drill;
-            return drill;
         }
 
         public FuelTank SetFuelTank()

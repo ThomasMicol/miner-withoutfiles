@@ -11,10 +11,9 @@ namespace MinerGame.Drills
     {
         protected int PowerUsage;
         protected int Damage;
-        public Drill(Texture2D texture)
-            : base(texture)
+        public Drill()
         {
-
+            Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
         }
 
         public virtual void Initialize()

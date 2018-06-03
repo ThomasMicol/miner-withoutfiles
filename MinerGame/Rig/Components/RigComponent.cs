@@ -5,7 +5,7 @@ namespace MinerGame
 {
     public class RigComponent : Sprite
     {
-        protected Vector2 RigLocation = new Vector2(0,0);
+        protected Vector2 RigPosition = new Vector2(0,0);
         protected Vector2 ComponentOffset = new Vector2(0, 0);
         protected float PowerUsage;
         protected float HeatGenerated;
@@ -27,7 +27,7 @@ namespace MinerGame
         public void SetFuelUsage(float aFuelUsage) { FuelUsage = aFuelUsage; }
         public void SetName(string name) { Name = name; }
         public void SetDescription(string description) { Description = description; }
-        public void SetRigLocation(Vector2 aLoc){ RigLocation = aLoc; }
+        public void SetRigPosition(Vector2 aLoc){ RigPosition = aLoc; }
         #endregion
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -39,7 +39,7 @@ namespace MinerGame
             else
             {
                 spriteBatch.Draw(Texture,
-                RigLocation + ComponentOffset,
+                RigPosition + ComponentOffset,
                 null,
                 Color.White,
                 0f,

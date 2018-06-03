@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace MinerGame.Drills
 {
-    public abstract class Drill:Descriptor
+    public abstract class Drill:Sprite
     {
         protected int PowerUsage;
         protected int Damage;
-        public Drill() { }
+        public Drill(Texture2D texture)
+            : base(texture)
+        {
+
+        }
 
         public virtual void Initialize()
         {
-            SetName("Drill");
-            SetDescription("Drill Description");
             SetDamage(2);
             SetPowerUsage(1);
         }

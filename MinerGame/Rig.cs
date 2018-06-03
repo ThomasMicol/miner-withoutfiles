@@ -31,6 +31,7 @@ namespace MinerGame
                 (Game1.ScreenHeight / 2) - (Height / 2));
             SetFuelTank();
         }
+
         public Hull SetHull()
         {
             Hull_BrittleStone hull = new Hull_BrittleStone();
@@ -42,10 +43,11 @@ namespace MinerGame
             // comment
         }
 
-        public Drill SetDrill()
+        public Drill SetDrill(Texture2D texture)
         {
-            Drill drill = new Drill_BrittleStone();
+            Drill drill = new Drill_BrittleStone(texture);
             drill.Initialize();
+            Drill = drill;
             return drill;
         }
 
@@ -71,6 +73,12 @@ namespace MinerGame
                 velocity.Y += MoveSpeed;
 
             Position += velocity;
+            Drill.Position = new Vector2(Position.X + 4, Position.Y);
+        }
+
+        public Drill GetDrill()
+        {
+            return Drill;
         }
 
         public void Draw(GameTime aTime)

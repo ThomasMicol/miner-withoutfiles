@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    class Cursor
+    class Cursor : Component
     {
         public Texture2D Sprite;
         public bool Active;
         public Vector2 Position;
+
+        public Cursor()
+        {
+            Sprite = Context.Content.Load<Texture2D>("sprites/sCursor");
+        }
 
         public int Width
         {
@@ -25,20 +30,19 @@ namespace MinerGame
             get { return Sprite.Height; }
         }
 
-        public void Initialize(Texture2D sprite, Vector2 position)
+        public void Initialize(Vector2 position)
         {
-            Sprite = sprite;
             Position = position;
             Active = true;
         }
 
-        public void Update()
+        public override void Update(GameTime aTime)
         {
             MouseState mPos = Mouse.GetState();
             Position = new Vector2(mPos.X, mPos.Y);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(GameTime aTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Sprite,
                 Position,

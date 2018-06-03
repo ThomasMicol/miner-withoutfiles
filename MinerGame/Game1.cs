@@ -17,13 +17,10 @@ namespace MinerGame
 
         internal GameWorld MyWorld { get; private set; }
 
-        public Rig player;
         KeyboardState currentKeyboardState;
         //KeyboardState previousKeyboardState;
         MouseState currentMouseState;
         //MouseState previousMouseState;
-        List<Wall> Walls = new List<Wall>();
-
         private Camera Camera;
         //private List<Component> Components;
         public static int ScreenHeight;
@@ -57,9 +54,6 @@ namespace MinerGame
             // TODO: Add your initialization logic here
             Component.Context = this;
             MyWorld = new GameWorld();
-            player = new Rig();
-            player.Position = new Vector2((ScreenWidth / 2) - (player.Width / 2),
-                (ScreenHeight / 2) - (player.Height / 2));
             base.Initialize();
         }
 
@@ -82,7 +76,7 @@ namespace MinerGame
                     Vector2 wallPosition = new Vector2(0 + (16 * i), 0 + (16 * j));
                     Wall wall = new Wall();
                     wall.Position = wallPosition;
-                    Walls.Add(wall);
+                    //Walls.Add(wall);
                 }
             }
 
@@ -121,7 +115,7 @@ namespace MinerGame
             currentMouseState = Mouse.GetState();
             UpdateRig(gameTime);
             CollisionChecks();
-            Camera.Follow(player);
+            Camera.Follow(MyWorld.Player);
             base.Update(gameTime);
         }
 
@@ -134,43 +128,44 @@ namespace MinerGame
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(transformMatrix: Camera.Transform);
             MyWorld.Draw(gameTime, spriteBatch);
-            foreach(Wall wall in Walls)
-            {
-                wall.Draw(gameTime, spriteBatch);
-            }
-            player.Draw(gameTime, spriteBatch);
-            player.GetDrill().Draw(gameTime, spriteBatch);
+            //foreach(Wall wall in Walls)
+            //{
+            //    wall.Draw(gameTime, spriteBatch);
+            //}
+            //player.Draw(gameTime, spriteBatch);
+            //player.GetDrill().Draw(gameTime, spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
         private void UpdateRig(GameTime gameTime)
         {
-            player.Move(currentKeyboardState);
+            MyWorld.Player.Move(currentKeyboardState);
         }
 
         private void CreateRoom(int width, int height, Vector2 startPos)
         {
             // Find center of 'chunk'
             int cX, cY;
-            cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
-            cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
-            cX -= width / 2;
-            cY -= height / 2;
-            startPos = new Vector2(cX * 16, cY * 16);
-            for ( int i = 0; i < width; i ++ )
-            {
-                for ( int h = 0; h < height; h ++)
-                {
-                    Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
-                    Wall targetWall = Walls.Where(aWall => aWall.Position.X == Mask.X && aWall.Position.Y == Mask.Y).FirstOrDefault();
-                    Walls.Remove(targetWall);
-                }
-            }
+            //cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
+            //cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
+            //cX -= width / 2;
+            //cY -= height / 2;
+            //startPos = new Vector2(cX * 16, cY * 16);
+            //for ( int i = 0; i < width; i ++ )
+            //{
+            //    for ( int h = 0; h < height; h ++)
+            //    {
+            //        Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
+            //        Wall targetWall = Walls.Where(aWall => aWall.Position.X == Mask.X && aWall.Position.Y == Mask.Y).FirstOrDefault();
+            //        Walls.Remove(targetWall);
+            //    }
+            //}
 
-            player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
-                startPos.Y + (16 * (height / 2)) - (player.Height / 2));
-           }
+            //player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
+            //    startPos.Y + (16 * (height / 2)) - (player.Height / 2));
+        }
+
         private void CollisionChecks()
         {
             Rectangle DrillHitMask = player.GetDrill().Rectangle;

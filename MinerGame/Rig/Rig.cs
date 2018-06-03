@@ -13,33 +13,18 @@ namespace MinerGame
 {
     public class Rig: Sprite
     {
-        protected Drill Drill;
-        protected Hull Hull;
-        protected Tracks Tracks;
-        protected string Cargo;
-        protected FuelTank FuelTank;
-        protected string Fan;
-        protected string Engine;
-        protected string FlashLight;
-        protected string Battery;
+        protected RigComponentController Components;
         public float MoveSpeed = 2f;
+
 
         public Rig()
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sHull_Base");
             Position = new Vector2((Game1.ScreenWidth / 2) - (Width / 2),
                 (Game1.ScreenHeight / 2) - (Height / 2));
-            SetFuelTank();
-            SetDrill();
-            SetOrigin();
-            SetTracks();
-        }
-
-        public Hull SetHull()
-        {
-            Hull_BrittleStone hull = new Hull_BrittleStone();
-            hull.Initialize();
-            return hull;
+            Components = new RigComponentController();
+            Components.SetFuelTank(new FuelTank_Stone());
+            Components.SetDrill(new Drill_BrittleStone());
         }
 
         public void SetTracks()
@@ -52,12 +37,6 @@ namespace MinerGame
         public void SetDrill()
         {
             Drill = new Drill_BrittleStone();
-        }
-
-        public FuelTank SetFuelTank()
-        {
-            FuelTank fuelTank = new FuelTank_Stone();
-            return fuelTank;
         }
 
         public void Move(KeyboardState key)
@@ -90,17 +69,21 @@ namespace MinerGame
                 
 
             Position += velocity;
-            Drill.Position = new Vector2(Position.X + 4, Position.Y);
+            //Drill.Position = new Vector2(Position.X + 4, Position.Y);
         }
 
-        public Drill GetDrill()
+        public override void Draw(GameTime aTime, SpriteBatch batch)
         {
-            return Drill;
-        }
+            batch.Draw(Texture,
+                Position,
+                null,
+                Color.White,
+                0f,
+                Vector2.Zero,
+                1f,
+                SpriteEffects.None, 0f);
 
-        public void Draw(GameTime aTime)
-        {
-
+            Components.DrawComponents(aTime, batch, Position);
         }
     }
 }

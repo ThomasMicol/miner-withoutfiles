@@ -14,6 +14,7 @@ namespace MinerGame.Drills
         public Drill()
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
+            SetOrigin();
         }
 
         public virtual void Initialize()

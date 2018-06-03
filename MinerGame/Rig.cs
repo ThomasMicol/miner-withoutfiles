@@ -15,7 +15,7 @@ namespace MinerGame
     {
         protected Drill Drill;
         protected Hull Hull;
-        protected string Tracks;
+        protected Tracks Tracks;
         protected string Cargo;
         protected FuelTank FuelTank;
         protected string Fan;
@@ -31,6 +31,8 @@ namespace MinerGame
                 (Game1.ScreenHeight / 2) - (Height / 2));
             SetFuelTank();
             SetDrill();
+            SetOrigin();
+            SetTracks();
         }
 
         public Hull SetHull()
@@ -40,14 +42,16 @@ namespace MinerGame
             return hull;
         }
 
+        public void SetTracks()
+        {
+            Track_Stone track = new Track_Stone();
+            MoveSpeed = track.GetSpeed();
+            Tracks = track;
+        }
+
         public void SetDrill()
         {
             Drill = new Drill_BrittleStone();
-        }
-        
-        public void SetOrigin()
-        {
-            // comment
         }
 
         public FuelTank SetFuelTank()
@@ -60,16 +64,30 @@ namespace MinerGame
         {
             Vector2 velocity = new Vector2();
             if (key.IsKeyDown(Keys.Left))
+            {
                 velocity.X -= MoveSpeed;
-
+                // Rotation = 180f;
+            }
             if (key.IsKeyDown(Keys.Right))
+            {
+                //Rotation = 0f;
                 velocity.X += MoveSpeed;
+            }
+                
 
             if (key.IsKeyDown(Keys.Up))
+            {
                 velocity.Y -= MoveSpeed;
+                //Rotation = 90f;
+            }
+                
 
             if (key.IsKeyDown(Keys.Down))
+            {
+                //Rotation = 270f;
                 velocity.Y += MoveSpeed;
+            }
+                
 
             Position += velocity;
             Drill.Position = new Vector2(Position.X + 4, Position.Y);

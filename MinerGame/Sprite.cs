@@ -13,6 +13,7 @@ namespace MinerGame
         protected Texture2D Texture;
         public Vector2 Position { get; set; }
         public Vector2 Origin = new Vector2(0, 0);
+        public float Rotation = 0f;
         public int Width
         {
             get { return Texture.Width; }
@@ -30,7 +31,12 @@ namespace MinerGame
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, new Vector2(Width/2, Height/2), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, Origin, 1f, SpriteEffects.None, 0f);
+        }
+
+        public void SetOrigin()
+        {
+            Origin = new Vector2(Width / 2, Height / 2);
         }
 
         public override void Update(GameTime gameTime)

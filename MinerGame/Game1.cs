@@ -173,12 +173,12 @@ namespace MinerGame
            }
         private void CollisionChecks()
         {
-            Rectangle PlayerHitMask_Body = player.Rectangle;
+            Rectangle DrillHitMask = player.GetDrill().Rectangle;
             for(int i = 0; i < Walls.Count; i ++)
             {
                 Wall wall = Walls[i];
                 Rectangle wallHitBox = new Rectangle((int)wall.Position.X, (int)wall.Position.Y, wall.Width, wall.Height);
-                if (wallHitBox.Intersects(PlayerHitMask_Body))
+                if (wallHitBox.Intersects(DrillHitMask))
                 {
                     Walls.RemoveAt(i);
                 }

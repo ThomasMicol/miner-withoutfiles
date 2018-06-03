@@ -16,5 +16,10 @@ namespace MinerGame
             Texture = Context.Content.Load<Texture2D>("sprites/sWall");
             Position = aPosition;
         }
+
+        Vector2 ITile.GetPosition()
+        {
+            return Position;
+        }
     }
 }

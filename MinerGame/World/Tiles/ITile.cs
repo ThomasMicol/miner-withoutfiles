@@ -11,5 +11,6 @@ namespace MinerGame.World.Tiles
     interface ITile
     {
         void Draw(GameTime gameTime, SpriteBatch spriteBatch);
+        Vector2 GetPosition();
     }
 }

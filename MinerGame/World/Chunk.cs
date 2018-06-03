@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MinerGame.World.Tiles;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MinerGame
 {
@@ -47,6 +49,26 @@ namespace MinerGame
                 {
                     Vector2 wallPosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y ));
                     MyTiles.Add(new Wall(wallPosition));
+                }
+            }
+        }
+
+        public void CreateRoom(int width, int height, Vector2 startPos)
+        {
+            // Find center of 'chunk'
+            int cX, cY;
+            cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
+            cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
+            cX -= width / 2;
+            cY -= height / 2;
+            startPos = new Vector2(cX * 16, cY * 16);
+            for ( int i = 0; i < width; i ++ )
+            {
+                for ( int h = 0; h < height; h ++)
+                {
+                    Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
+                    Wall targetWall = (Wall)MyTiles.Where(aWall => aWall.GetPosition().X == Mask.X && aWall.GetPosition().Y == Mask.Y).FirstOrDefault();
+                    MyTiles.Remove(targetWall);
                 }
             }
         }

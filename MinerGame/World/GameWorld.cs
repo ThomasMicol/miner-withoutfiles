@@ -37,6 +37,8 @@ namespace MinerGame
         {
             MyChunks.Add(new SpawnChunk());
             GenerateChunk(1, 1);
+            Chunk startChunk = GenerateChunk(0, 0);
+            startChunk.CreateRoom(10, 10, new Vector2(32, 32));
             GenerateChunk(1, 0);
             GenerateChunk(1, -1);
             GenerateChunk(-1, 1);
@@ -46,9 +48,11 @@ namespace MinerGame
             GenerateChunk(0, -1);
         }
 
-        protected void GenerateChunk(int x, int y)
+        protected Chunk GenerateChunk(int x, int y)
         {
-            MyChunks.Add(new Chunk(new Vector2(x, y)));
+            Chunk chunk = new Chunk(new Vector2(x, y));
+            MyChunks.Add(chunk);
+            return chunk;
         }
 
     }

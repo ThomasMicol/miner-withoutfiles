@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public abstract class Hull:Descriptor
+    public abstract class Hull : RigComponent
     {
         protected int DurabilityMax;
         protected int Durability;
         protected int Defence;
+
         public Hull()
         {
 

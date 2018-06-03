@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace MinerGame.Drills
 {
-    public abstract class Drill:Sprite
+    public abstract class Drill : RigComponent
     {
-        protected int PowerUsage;
+
         protected int Damage;
+
         public Drill()
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
@@ -27,7 +28,7 @@ namespace MinerGame.Drills
             return Damage;
         }
 
-        public int GetPowerUsgae()
+        public float GetPowerUsgae()
         {
             return PowerUsage;
         }

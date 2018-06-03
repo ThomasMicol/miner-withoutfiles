@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public class FuelTank_Stone:FuelTank
+    public class Inventory
     {
-        public FuelTank_Stone()
-        {
-            SetFuel(20);
-            SetFuelEffieciency(0.5f);
-        }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public abstract class FuelTank
+    public abstract class FuelTank : RigComponent
     {
         public float LitresMax { get; set; }
         public float Litres { get; set; }

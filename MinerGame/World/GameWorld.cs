@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MinerGame.Buildings;
 using MinerGame.World;
 using MinerGame.World.Tiles;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace MinerGame
         public List<Chunk> MyChunks = new List<Chunk>();
         public Rig Player;
         protected Cursor cursor;
+        protected StockPile StockPile;
 
         KeyboardState currentKeyboardState;
         MouseState currentMouseState;
@@ -21,9 +23,11 @@ namespace MinerGame
         {
             GenerateWorld();
             Player = new Rig();
-            // cursor = new Cursor();
+            cursor = new Cursor();
+            StockPile = new StockPile(new Vector2(Player.GetPosition().X - 20, Player.GetPosition().Y - 18));
             MyDrawables.Add(Player);
-            //MyDrawables.Add(cursor);
+            MyDrawables.Add(cursor);
+            MyDrawables.Add(StockPile);
         }
 
         public void Draw(GameTime aTime, SpriteBatch batch)

@@ -14,6 +14,7 @@ namespace MinerGame
         public Vector2 Position { get; set; }
         public Vector2 Origin = new Vector2(0, 0);
         public float Rotation = 0f;
+
         public int Width
         {
             get { return Texture.Width; }
@@ -22,6 +23,11 @@ namespace MinerGame
         public int Height
         {
             get { return Texture.Height; }
+        }
+
+        public Vector2 GetPosition()
+        {
+            return Position;
         }
 
         public Rectangle Rectangle

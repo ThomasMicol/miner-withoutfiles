@@ -10,6 +10,8 @@ namespace MinerGame
     {
         protected List<Item> Items;
         protected int Capacity;
+
+
         public void AddItem(Item item)
         {
             bool found = false;

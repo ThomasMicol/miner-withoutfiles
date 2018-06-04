@@ -19,6 +19,10 @@ namespace MinerGame
         protected FlashLight FlashLight;
         protected Battery Battery;
 
+        public void SetComponentsPosition()
+        {
+            
+        }
         #region Getters & Setters
         public void SetDrill(Drill aDrill)
         {

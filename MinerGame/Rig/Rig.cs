@@ -31,7 +31,6 @@ namespace MinerGame
             CalculateMoveSpeed();
         }
 
-
         public void Move(KeyboardState key)
         {
             Vector2 velocity = new Vector2();
@@ -66,6 +65,7 @@ namespace MinerGame
             }
             else Drilling = false;
             Position += velocity;
+            Components.SetComponentsPosition();
             Components.GetDrill().Position = Position + Components.GetDrill().GetOffset();
         }
 

@@ -35,26 +35,26 @@ namespace MinerGame
         public void Move(KeyboardState key)
         {
             Vector2 velocity = new Vector2();
-            if (key.IsKeyDown(Keys.Left))
+            if (key.IsKeyDown(Keys.A))
             {
                 velocity.X -= MoveSpeed;
                 // Rotation = 180f;
             }
-            if (key.IsKeyDown(Keys.Right))
+            if (key.IsKeyDown(Keys.D))
             {
                 //Rotation = 0f;
                 velocity.X += MoveSpeed;
             }
                 
 
-            if (key.IsKeyDown(Keys.Up))
+            if (key.IsKeyDown(Keys.W))
             {
                 velocity.Y -= MoveSpeed;
                 //Rotation = 90f;
             }
                 
 
-            if (key.IsKeyDown(Keys.Down))
+            if (key.IsKeyDown(Keys.S))
             {
                 //Rotation = 270f;
                 velocity.Y += MoveSpeed;

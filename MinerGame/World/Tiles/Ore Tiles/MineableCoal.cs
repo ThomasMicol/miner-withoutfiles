@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MinerGame.World.Tiles.Ore_Tiles
 {
-    class MineableCoal : MineableTile
+    class MineableCoal : MineableTile, ITile
     {
         public MineableCoal(Vector2 aPosition) : base(aPosition)
         {
-            Texture = Context.Content.Load<Texture2D>("sprites/sCursor");
+            Texture = Context.Content.Load<Texture2D>("sprites/sStone_Coal");
             MyDrop = new Coal();
         }
     }

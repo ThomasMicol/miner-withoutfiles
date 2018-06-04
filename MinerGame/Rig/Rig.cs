@@ -17,6 +17,7 @@ namespace MinerGame
         protected RigComponentController Components;
         public float MoveSpeed = 2f;
         protected bool Drilling = false;
+        protected Chunk Chunk;
         int direction;
 
 
@@ -39,21 +40,21 @@ namespace MinerGame
             if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
             {
                 velocity.X -= MoveSpeed;
-                // Rotation = 180f;
+                direction = (int)Direction.Left;
             }
             if (key.IsKeyDown(Keys.D) && PlaceFree(MoveSpeed, 0, chunks))
             {
-                //Rotation = 0f;
+                direction = (int)Direction.Right;
                 velocity.X += MoveSpeed;
             }
             if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
             {
                 velocity.Y -= MoveSpeed;
-                //Rotation = 90f;
+                direction = (int)Direction.Up;
             }
             if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
             {
-                //Rotation = 270f;
+                direction = (int)Direction.Down;
                 velocity.Y += MoveSpeed;
             }
             if (key.IsKeyDown(Keys.Z))
@@ -100,7 +101,15 @@ namespace MinerGame
             {
                 if ( tile.GetPosition().X > Position.X )
                 {
-                    
+                    List<ITile> tiles = Chunk.GetTiles();
+                    for (int i = 0; i < tiles.Count; i++)
+                    {
+                        if (tiles[i] == tile)
+                        {
+                            tiles[i].ReduceHealth(10);
+                            if ( tiles[i].GetHealth() <= 0) tiles.RemoveAt(i);
+                        }
+                    }
                 }
             }
         }
@@ -127,6 +136,11 @@ namespace MinerGame
         public RigComponentController GetComponents()
         {
             return Components;
+        }
+
+        public void SetChunk(Chunk chunk)
+        {
+            Chunk = chunk;
         }
     }
 }

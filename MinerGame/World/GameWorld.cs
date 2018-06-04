@@ -55,20 +55,13 @@ namespace MinerGame
             // Check if player is colliding with chunks, for now just the first one. Will only check current chunk zone eventually
             // kris will do this
 
-            Rectangle DrillHitMask = Player.GetComponents().GetDrill().Rectangle;
+            Rectangle PlayerMask = Player.Rectangle;
             foreach(Chunk chunk in MyChunks)
             {
-                List<ITile> tiles = chunk.GetTiles();
-                for(int i = 0; i < tiles.Count; i ++)
+                Rectangle ChunkMask = chunk.GetRectangle();
+                if (PlayerMask.Intersects(ChunkMask))
                 {
-                    Rectangle mask = tiles[i].Rectangle();
-                    if( Player.GetDrilling() )
-                    {
-                        if ( DrillHitMask.Intersects(mask))
-                        {
-                            tiles.RemoveAt(i);
-                        }
-                    }
+                    Player.SetChunk(chunk);
                 }
             }
             /*for(int i = 0; i < Tiles.Count; i ++)

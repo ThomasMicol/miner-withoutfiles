@@ -12,7 +12,7 @@ namespace MinerGame
     {
         protected Vector2 Position;
         protected List<ITile> MyTiles = new List<ITile>();
-        protected Rectangle Mask;
+        protected Rectangle Rectangle;
         protected int ScreenHeight;
         protected int ScreenWidth;
         protected int Height = 16;
@@ -46,9 +46,10 @@ namespace MinerGame
 
         protected virtual void GenerateChunkMask()
         {
+            // Stop using points
             Point postopoint = new Point((int)Position.X * ScreenWidth, (int)Position.Y * ScreenHeight);
             Point size = new Point((TileWidth * Width) + ((int)Position.X * ScreenWidth), (TileHeight * Height) + ((int)Position.Y * ScreenHeight));
-            Mask = new Rectangle(postopoint,size);
+            Rectangle = new Rectangle(postopoint,size);
         }
 
         protected virtual void GenerateChunkContent()
@@ -102,6 +103,11 @@ namespace MinerGame
         public List<ITile> GetTiles()
         {
             return MyTiles;
+        }
+
+        public Rectangle GetRectangle()
+        {
+            return Rectangle;
         }
     }
 }

@@ -17,6 +17,16 @@ namespace MinerGame.World.Tiles.Ore_Tiles
             MyDrop = new Silver();
         }
 
+        public int GetHealth()
+        {
+            return Health;
+        }
+
+        public void ReduceHealth(int value)
+        {
+            Health -= value;
+        }
+
         Rectangle ITile.Rectangle()
         {
             return Rectangle;

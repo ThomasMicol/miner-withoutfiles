@@ -19,6 +19,13 @@ namespace MinerGame
             Health = 100;
         }
 
+        public void ReduceHealth(int value)
+        {
+            Health -= value;
+        }
+
+        public int GetHealth() { return Health; }
+
         Vector2 ITile.GetPosition()
         {
             return Position;

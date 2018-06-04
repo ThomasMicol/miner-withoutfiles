@@ -14,7 +14,17 @@ namespace MinerGame.World.Tiles.Ore_Tiles
         public MineableIron(Vector2 aPosition) : base(aPosition)
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sStone_Iron");
-            MyDrop = new Iron();
+            MyDrop = new Item_Iron();
+        }
+
+        public int GetHealth()
+        {
+            return Health;
+        }
+
+        public void ReduceHealth(int value)
+        {
+            Health -= 1;
         }
 
         Rectangle ITile.Rectangle()

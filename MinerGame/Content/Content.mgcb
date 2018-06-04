@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin sprites/sWall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprites/sWall.png
+
 #begin sprites/sCursor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -49,18 +61,6 @@
 /processorParam:TextureFormat=Color
 /build:sprites/sHull_Base.png
 
-#begin sprites/sWall.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites/sWall.png
-
 #begin sprites/sStone_Iron.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -73,7 +73,7 @@
 /processorParam:TextureFormat=Color
 /build:sprites/sStone_Iron.png
 
-#begin sprites/sStone_Iron.png
+#begin sprites/sStone_Coal.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -83,5 +83,17 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprites/sStone_Iron.png
+/build:sprites/sStone_Coal.png
+
+#begin sprites/sStone_Silver.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprites/sStone_Silver.png
 

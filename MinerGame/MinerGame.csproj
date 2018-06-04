@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Buildings\Buildable.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Items\Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\Item_Iron.cs" />

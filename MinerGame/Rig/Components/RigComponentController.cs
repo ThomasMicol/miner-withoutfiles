@@ -88,11 +88,11 @@ namespace MinerGame
             return newComponent;
         }
 
-        internal void DrawComponents(GameTime aTime, SpriteBatch batch, Vector2 aRigLocation)
+        internal void DrawComponents(GameTime aTime, SpriteBatch batch, Vector2 aRigPosition)
         {
             foreach(RigComponent aComp in ComponentList)
             {
-                aComp.SetRigLocation(aRigLocation);
+                aComp.SetRigPosition(aRigPosition);
                 aComp.Draw(aTime, batch);
             }
         }

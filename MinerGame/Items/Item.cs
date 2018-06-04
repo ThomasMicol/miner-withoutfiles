@@ -16,11 +16,28 @@ namespace MinerGame
         protected int Count;
         protected int StackSize;
 
+        public Item()
+        {
+            Name = "name";
+            Description = "description";
+            Rarity = "rarity";
+            Value = 1;
+            StackSize = 1;
+            Count = 0;
+        }
+
+        public void AddCount(int count)
+        {
+            Count += count;
+        }
         public void SetName(string name)
         {
             Name = name;
         }
 
         public string GetName() { return Name; }
+
+        public int GetCount() { return Count; }
+        public int GetStackSize() { return StackSize; }
     }
 }

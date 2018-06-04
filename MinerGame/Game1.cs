@@ -68,7 +68,7 @@ namespace MinerGame
             Vector2 rigPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             
 
-            CreateRoom(8, 8, new Vector2(32, 32));
+            // CreateRoom(8, 8, new Vector2(32, 32));
 
             Camera = new Camera();
             // Components = new List<Component>()
@@ -99,10 +99,8 @@ namespace MinerGame
 
             MouseState mousePos = Mouse.GetState();
             // TODO: Add your update logic here
-            currentKeyboardState = Keyboard.GetState();
-            currentMouseState = Mouse.GetState();
-            UpdateRig(gameTime);
-            CollisionChecks();
+            MyWorld.Update(gameTime);
+            //CollisionChecks();
             Camera.Follow(MyWorld.Player);
             base.Update(gameTime);
         }
@@ -125,35 +123,6 @@ namespace MinerGame
             spriteBatch.End();
             base.Draw(gameTime);
         }
-
-        private void UpdateRig(GameTime gameTime)
-        {
-            MyWorld.Player.Move(currentKeyboardState);
-        }
-
-        private void CreateRoom(int width, int height, Vector2 startPos)
-        {
-            // Find center of 'chunk'
-            int cX, cY;
-            //cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
-            //cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
-            //cX -= width / 2;
-            //cY -= height / 2;
-            //startPos = new Vector2(cX * 16, cY * 16);
-            //for ( int i = 0; i < width; i ++ )
-            //{
-            //    for ( int h = 0; h < height; h ++)
-            //    {
-            //        Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
-            //        Wall targetWall = Walls.Where(aWall => aWall.Position.X == Mask.X && aWall.Position.Y == Mask.Y).FirstOrDefault();
-            //        Walls.Remove(targetWall);
-            //    }
-            //}
-
-            //player.Position = new Vector2(startPos.X + (16 * (width / 2) - (player.Width / 2)),
-            //    startPos.Y + (16 * (height / 2)) - (player.Height / 2));
-        }
-
         private void CollisionChecks()
         {
             /*Rectangle DrillHitMask = player.GetDrill().Rectangle;

@@ -12,6 +12,7 @@ namespace MinerGame
     {
         protected Vector2 Position;
         protected List<ITile> MyTiles = new List<ITile>();
+        protected Rectangle Mask;
         protected int ScreenHeight;
         protected int ScreenWidth;
         protected int Height = 16;
@@ -26,6 +27,7 @@ namespace MinerGame
             Width = ScreenWidth / 16;
             Height = ScreenHeight / 16;
             Position = aPos;
+            GenerateChunkMask();
             GenerateChunkContent();
         }
 
@@ -40,6 +42,13 @@ namespace MinerGame
         public override void Update(GameTime gameTime)
         {
             throw new System.NotImplementedException();
+        }
+
+        protected virtual void GenerateChunkMask()
+        {
+            Point postopoint = new Point((int)Position.X * ScreenWidth, (int)Position.Y * ScreenHeight);
+            Point size = new Point((TileWidth * Width) + ((int)Position.X * ScreenWidth), (TileHeight * Height) + ((int)Position.Y * ScreenHeight));
+            Mask = new Rectangle(postopoint,size);
         }
 
         protected virtual void GenerateChunkContent()

@@ -45,21 +45,16 @@ namespace MinerGame
                 //Rotation = 0f;
                 velocity.X += MoveSpeed;
             }
-                
-
             if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
             {
                 velocity.Y -= MoveSpeed;
                 //Rotation = 90f;
             }
-                
-
             if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
             {
                 //Rotation = 270f;
                 velocity.Y += MoveSpeed;
             }
-
             if (key.IsKeyDown(Keys.Z))
             {
                 Drilling = true;

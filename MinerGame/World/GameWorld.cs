@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MinerGame.Buildings;
 using MinerGame.World;
+using MinerGame.World.Tiles;
 using System.Collections.Generic;
 
 namespace MinerGame
@@ -10,7 +11,7 @@ namespace MinerGame
     class GameWorld
     {
         protected List<Component> MyDrawables = new List<Component>();
-        protected List<Chunk> MyChunks = new List<Chunk>();
+        public List<Chunk> MyChunks = new List<Chunk>();
         public Rig Player;
         protected Cursor cursor;
         protected StockPile StockPile;
@@ -43,7 +44,7 @@ namespace MinerGame
 
         private void UpdateRig(GameTime gameTime)
         {
-            Player.Move(currentKeyboardState);
+            Player.Move(currentKeyboardState, MyChunks);
         }
 
         public void Update(GameTime gameTime)
@@ -53,14 +54,28 @@ namespace MinerGame
             UpdateRig(gameTime);
             CheckCollisions();
         }
-
         protected void CheckCollisions()
         {
             // Check if player is colliding with chunks, for now just the first one. Will only check current chunk zone eventually
             // kris will do this
 
-            /*Rectangle DrillHitMask = Player.GetComponents().GetDrill().Rectangle;
-            for(int i = 0; i < Tiles.Count; i ++)
+            Rectangle DrillHitMask = Player.GetComponents().GetDrill().Rectangle;
+            foreach(Chunk chunk in MyChunks)
+            {
+                List<ITile> tiles = chunk.GetTiles();
+                for(int i = 0; i < tiles.Count; i ++)
+                {
+                    Rectangle mask = tiles[i].Rectangle();
+                    if( Player.GetDrilling() )
+                    {
+                        if ( DrillHitMask.Intersects(mask))
+                        {
+                            tiles.RemoveAt(i);
+                        }
+                    }
+                }
+            }
+            /*for(int i = 0; i < Tiles.Count; i ++)
             {
                 Wall wall = Walls[i];
                 Rectangle wallHitBox = new Rectangle((int)wall.Position.X, (int)wall.Position.Y, wall.Width, wall.Height);

@@ -28,6 +28,7 @@ namespace MinerGame
         public void SetName(string name) { Name = name; }
         public void SetDescription(string description) { Description = description; }
         public void SetRigPosition(Vector2 aLoc){ RigPosition = aLoc; }
+        public Vector2 GetOffset() { return ComponentOffset; }
         #endregion
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -39,7 +40,7 @@ namespace MinerGame
             else
             {
                 spriteBatch.Draw(Texture,
-                RigPosition + ComponentOffset,
+                Position,
                 null,
                 Color.White,
                 0f,

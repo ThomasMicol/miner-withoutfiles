@@ -16,5 +16,10 @@ namespace MinerGame.World.Tiles.Ore_Tiles
             Texture = Context.Content.Load<Texture2D>("sprites/sStone_Iron");
             MyDrop = new Iron();
         }
+
+        Rectangle ITile.Rectangle()
+        {
+            return Rectangle;
+        }
     }
 }

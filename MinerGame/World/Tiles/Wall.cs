@@ -23,5 +23,10 @@ namespace MinerGame
         {
             return Position;
         }
+
+        Rectangle ITile.Rectangle()
+        {
+            return Rectangle;
+        }
     }
 }

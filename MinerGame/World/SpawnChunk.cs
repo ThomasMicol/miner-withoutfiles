@@ -15,7 +15,7 @@ namespace MinerGame.World
         protected override void GenerateChunkContent()
         {
             for (int x = 0; x < Width; x++)
-            {
+            {   
                 for (int y = 0; y < Height; y++)
                 {
                     Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
@@ -24,6 +24,7 @@ namespace MinerGame.World
                 }
             }
             CreateRoom(10, 10, new Vector2(32, 32));
+
             return;
         }
 

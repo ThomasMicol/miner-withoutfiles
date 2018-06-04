@@ -17,6 +17,7 @@ namespace MinerGame
         protected RigComponentController Components;
         public float MoveSpeed = 2f;
         protected bool Drilling = false;
+        int direction;
 
 
         public Rig()
@@ -79,6 +80,8 @@ namespace MinerGame
                 {
                     if ( RigMask.Intersects(tile.Rectangle()) )
                     {
+                        DrillWall(tile);
+                        // temp destroy wall
                         return false;
                     }
                 }
@@ -89,6 +92,17 @@ namespace MinerGame
         public void CalculateMoveSpeed()
         {
             MoveSpeed = Components.GetTracks().GetSpeed();
+        }
+
+        public void DrillWall(ITile tile)
+        {
+            if ( direction == (int)Direction.Right )
+            {
+                if ( tile.GetPosition().X > Position.X )
+                {
+                    
+                }
+            }
         }
 
         public override void Draw(GameTime aTime, SpriteBatch batch)

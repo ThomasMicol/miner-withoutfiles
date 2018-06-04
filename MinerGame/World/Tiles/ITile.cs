@@ -12,5 +12,6 @@ namespace MinerGame.World.Tiles
     {
         void Draw(GameTime gameTime, SpriteBatch spriteBatch);
         Vector2 GetPosition();
+        Rectangle Rectangle();
     }
 }

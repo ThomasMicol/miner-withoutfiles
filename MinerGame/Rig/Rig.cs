@@ -65,10 +65,8 @@ namespace MinerGame
                 Drilling = true;
             }
             else Drilling = false;
-                
-
             Position += velocity;
-            // Drill.Position = new Vector2(Position.X + 4, Position.Y);
+            Components.GetDrill().Position = Position + Components.GetDrill().GetOffset();
         }
 
         public void CalculateMoveSpeed()
@@ -87,7 +85,7 @@ namespace MinerGame
                 1f,
                 SpriteEffects.None, 0f);
 
-            Components.DrawComponents(aTime, batch, Position);
+            Components.DrawComponents(aTime, batch);
         }
 
         public bool GetDrilling()

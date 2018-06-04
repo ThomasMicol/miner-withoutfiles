@@ -15,7 +15,7 @@ namespace MinerGame.Drills
         public Drill()
         {
             Texture = Context.Content.Load<Texture2D>("sprites/sDrill_Stone");
-            ComponentOffset = new Vector2(11, 4);
+            ComponentOffset = new Vector2(10, 4);
             SetOrigin();
         }
 

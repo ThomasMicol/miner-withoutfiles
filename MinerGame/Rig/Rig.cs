@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MinerGame.Drills;
 using MinerGame.Hulls;
+using MinerGame.World.Tiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MinerGame
 {
-    public class Rig: Sprite
+    class Rig: Sprite
     {
         protected RigComponentController Components;
         public float MoveSpeed = 2f;
@@ -31,29 +32,29 @@ namespace MinerGame
             CalculateMoveSpeed();
         }
 
-        public void Move(KeyboardState key)
+        public void Move(KeyboardState key, List<Chunk> chunks)
         {
             Vector2 velocity = new Vector2();
-            if (key.IsKeyDown(Keys.A))
+            if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
             {
                 velocity.X -= MoveSpeed;
                 // Rotation = 180f;
             }
-            if (key.IsKeyDown(Keys.D))
+            if (key.IsKeyDown(Keys.D) && PlaceFree(MoveSpeed, 0, chunks))
             {
                 //Rotation = 0f;
                 velocity.X += MoveSpeed;
             }
                 
 
-            if (key.IsKeyDown(Keys.W))
+            if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
             {
                 velocity.Y -= MoveSpeed;
                 //Rotation = 90f;
             }
                 
 
-            if (key.IsKeyDown(Keys.S))
+            if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
             {
                 //Rotation = 270f;
                 velocity.Y += MoveSpeed;
@@ -69,6 +70,26 @@ namespace MinerGame
             Components.GetDrill().Position = Position + Components.GetDrill().GetOffset();
         }
 
+        public bool PlaceFree(float x, float y, List<Chunk> chunks)
+        {
+            Rectangle RigMask = Rectangle;
+            RigMask.X += (int)x;
+            RigMask.Y += (int)y;
+
+            foreach(Chunk chunk in chunks)
+            {
+                List<ITile> tiles = chunk.GetTiles();
+                foreach(ITile tile in tiles)
+                {
+                    if ( RigMask.Intersects(tile.Rectangle()) )
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
         public void CalculateMoveSpeed()
         {
             MoveSpeed = Components.GetTracks().GetSpeed();

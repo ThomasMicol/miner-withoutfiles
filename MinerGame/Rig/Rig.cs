@@ -73,6 +73,7 @@ namespace MinerGame
         public bool PlaceFree(float x, float y, List<Chunk> chunks)
         {
             Rectangle RigMask = Rectangle;
+            RigMask.Width -= 4;
             RigMask.X += (int)x;
             RigMask.Y += (int)y;
 

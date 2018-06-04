@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MinerGame.World.Tiles;
+using MinerGame.World.Tiles.Ore_Tiles;
+using System;
 using System.Collections.Generic;
 
 namespace MinerGame
@@ -45,8 +47,22 @@ namespace MinerGame
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    Vector2 wallPosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y ));
-                    MyTiles.Add(new Wall(wallPosition));
+                    Random rnd = new Random();
+                    int seed;
+                    seed = rnd.Next(0,100);
+                    if(seed >= 50)
+                    {
+                        Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                        ITile tile = new Wall(TilePosition);
+                        MyTiles.Add(tile);
+                    }
+                    else
+                    {
+                        Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                        ITile tile = new MineableIron(TilePosition);
+                        MyTiles.Add(tile);
+                    }
+                    
                 }
             }
         }

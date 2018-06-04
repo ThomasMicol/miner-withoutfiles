@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="Rig\Components\Battery\Battery.cs" />
     <Compile Include="Rig\Components\Cargo\Cargo.cs" />
     <Compile Include="Rig\Components\Cargo\Cargo_Stone.cs" />
@@ -71,10 +71,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rig\Rig.cs" />
     <Compile Include="Sprite.cs" />
-    <Compile Include="World\Tiles\Ores\Coal.cs" />
-    <Compile Include="World\Tiles\Ores\Iron.cs" />
-    <Compile Include="World\Tiles\Ores\Mineable.cs" />
-    <Compile Include="World\Tiles\Ores\Silver.cs" />
+    <Compile Include="Items\Ores\Coal.cs" />
+    <Compile Include="Items\Ores\Iron.cs" />
+    <Compile Include="World\Tiles\MineableTile.cs" />
+    <Compile Include="Items\Ores\Silver.cs" />
+    <Compile Include="World\Tiles\Ore Tiles\MineableCoal.cs" />
+    <Compile Include="World\Tiles\Ore Tiles\MineableIron.cs" />
+    <Compile Include="World\Tiles\Ore Tiles\MineableSilver.cs" />
     <Compile Include="World\Tiles\Wall.cs" />
     <Compile Include="World\SpawnChunk.cs" />
     <Compile Include="World\Tiles\ITile.cs" />
@@ -93,9 +96,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Track\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

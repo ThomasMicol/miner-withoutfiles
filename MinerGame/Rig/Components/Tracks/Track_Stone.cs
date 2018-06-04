@@ -10,7 +10,7 @@ namespace MinerGame
     {
         public Track_Stone()
         {
-            Speed = 5f;
+            Speed = 1f;
         }
     }
 }

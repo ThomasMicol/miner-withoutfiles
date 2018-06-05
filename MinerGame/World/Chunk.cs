@@ -111,5 +111,10 @@ namespace MinerGame
         {
             return Rectangle;
         }
+
+        public List<Interactable> GetMyInteractables()
+        {
+            return MyInteractables;
+        }
     }
 }

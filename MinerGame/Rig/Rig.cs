@@ -42,10 +42,10 @@ namespace MinerGame
             {
                 foreach (Interactable aInteractable in Chunk.GetMyInteractables())
                 {
-                    Rectangle InteractableMask = aInteractable.GetRectangle();
+                    Rectangle InteractableMask = aInteractable.Rectangle;
                     if (Rectangle.Intersects(InteractableMask))
                     {
-                        aInteractable.Interact(chunk);
+                        aInteractable.Interact();
                     }
                 }
             }

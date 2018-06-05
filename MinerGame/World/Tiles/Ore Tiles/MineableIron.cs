@@ -17,6 +17,11 @@ namespace MinerGame.World.Tiles.Ore_Tiles
             MyDrop = new Item_Iron();
         }
 
+        public Item GetDrop()
+        {
+            return MyDrop;
+        }
+
         public int GetHealth()
         {
             return Health;

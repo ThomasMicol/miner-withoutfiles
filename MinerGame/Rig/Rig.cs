@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using MinerGame.Drills;
 using MinerGame.Hulls;
 using MinerGame.World.Tiles;
+using MinerGame.World.Tiles.Ores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,7 +108,11 @@ namespace MinerGame
                         if (tiles[i] == tile)
                         {
                             tiles[i].ReduceHealth(10);
-                            if ( tiles[i].GetHealth() <= 0) tiles.RemoveAt(i);
+                            if (tiles[i].GetHealth() <= 0)
+                            {
+                                Components.GetCargo().GetInventory().AddItem(tiles[i].GetDrop());
+                                tiles.RemoveAt(i);
+                            }
                         }
                     }
                 }

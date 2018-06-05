@@ -15,5 +15,6 @@ namespace MinerGame.World.Tiles
         Rectangle Rectangle();
         void ReduceHealth(int value);
         int GetHealth();
+        Item GetDrop();
     }
 }

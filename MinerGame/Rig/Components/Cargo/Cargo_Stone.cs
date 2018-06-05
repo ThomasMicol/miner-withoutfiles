@@ -12,49 +12,6 @@ namespace MinerGame
         {
             MaxSize = 5;
             Initialize();
-            
-
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
-            Inventory.AddItem(new Item_Iron());
         }
     }
 }

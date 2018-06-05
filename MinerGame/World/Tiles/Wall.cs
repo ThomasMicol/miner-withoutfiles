@@ -35,5 +35,10 @@ namespace MinerGame
         {
             return Rectangle;
         }
+
+        public Item GetDrop()
+        {
+            return new Item();
+        }
     }
 }

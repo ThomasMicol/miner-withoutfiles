@@ -12,5 +12,10 @@ namespace MinerGame
             Inventory = new Inventory();
             Inventory.SetInventoryCapacity(MaxSize);
         }
+
+        public Inventory GetInventory()
+        {
+            return Inventory;
+        }
     }
 }

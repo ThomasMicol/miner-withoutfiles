@@ -17,6 +17,12 @@ namespace MinerGame.World.Tiles.Ore_Tiles
             MyDrop = new Silver();
         }
 
+        public Item GetDrop()
+        {
+            // throw new NotImplementedException();
+            return MyDrop;
+        }
+
         public int GetHealth()
         {
             return Health;

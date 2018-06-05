@@ -24,10 +24,8 @@ namespace MinerGame
             GenerateWorld();
             Player = new Rig();
             cursor = new Cursor();
-            StockPile = new StockPile(new Vector2(Player.GetPosition().X - 20, Player.GetPosition().Y - 18));
             MyDrawables.Add(Player);
             MyDrawables.Add(cursor);
-            MyDrawables.Add(StockPile);
         }
 
         public void Draw(GameTime aTime, SpriteBatch batch)

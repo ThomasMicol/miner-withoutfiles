@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using MinerGame.Buildings;
 using MinerGame.World.Tiles;
 
 namespace MinerGame.World
@@ -46,6 +47,7 @@ namespace MinerGame.World
                     MyTiles.Remove(targetWall);
                 }
             }
+            MyInteractables.Add(new StockPile(new Vector2(130,90)));
         }
     }
 }

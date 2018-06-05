@@ -39,6 +39,10 @@ namespace MinerGame
             {
                 aTile.Draw(gameTime, spriteBatch);
             }
+            foreach(Interactable aInteractable in MyInteractables)
+            {
+                aInteractable.Draw(gameTime, spriteBatch);
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -56,10 +60,12 @@ namespace MinerGame
 
         protected virtual void GenerateChunkContent()
         {
+
             Random rnd = new Random();
             int seed;
 
             // What the fuck is this
+            //i dont want to fucking talk about it
             for (int x = 0; x < Width; x++)
             {
                 for (int y = 0; y < Height; y++)

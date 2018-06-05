@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MinerGame.Buildings;
 using MinerGame.World.Tiles;
 using MinerGame.World.Tiles.Ore_Tiles;
 using System;
@@ -12,6 +13,7 @@ namespace MinerGame
     {
         protected Vector2 Position;
         protected List<ITile> MyTiles = new List<ITile>();
+        protected List<Interactable> MyInteractables = new List<Interactable>();
         protected Rectangle Rectangle;
         protected int ScreenHeight;
         protected int ScreenWidth;

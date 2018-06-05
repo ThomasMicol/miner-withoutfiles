@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MinerGame.Buildings;
 using MinerGame.Drills;
 using MinerGame.Hulls;
 using MinerGame.World.Tiles;
@@ -39,7 +40,14 @@ namespace MinerGame
             Vector2 velocity = new Vector2();
             if (key.IsKeyDown(Keys.E))
             {
-
+                foreach (Interactable aInteractable in Chunk.GetMyInteractables())
+                {
+                    Rectangle InteractableMask = aInteractable.GetRectangle();
+                    if (Rectangle.Intersects(InteractableMask))
+                    {
+                        aInteractable.Interact(chunk);
+                    }
+                }
             }
             if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
             {

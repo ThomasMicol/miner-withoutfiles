@@ -44,7 +44,7 @@ namespace MinerGame
 
         private void UpdateRig(GameTime gameTime)
         {
-            Player.Move(currentKeyboardState, MyChunks);
+            Player.Update(currentKeyboardState, MyChunks);
         }
 
         public void Update(GameTime gameTime)

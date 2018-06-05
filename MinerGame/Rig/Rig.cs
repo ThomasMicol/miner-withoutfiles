@@ -34,9 +34,13 @@ namespace MinerGame
             CalculateMoveSpeed();
         }
 
-        public void Move(KeyboardState key, List<Chunk> chunks)
+        public void Update(KeyboardState key, List<Chunk> chunks)
         {
             Vector2 velocity = new Vector2();
+            if (key.IsKeyDown(Keys.E))
+            {
+
+            }
             if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
             {
                 velocity.X -= MoveSpeed;

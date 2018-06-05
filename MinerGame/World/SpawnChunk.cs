@@ -48,6 +48,7 @@ namespace MinerGame.World
                 }
             }
             MyInteractables.Add(new StockPile(new Vector2(130,90)));
+            MyInteractables.Add(new OreExporter(new Vector2(178, 128)));
         }
     }
 }

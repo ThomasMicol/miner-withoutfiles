@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Buildings\Buildable.cs" />
     <Compile Include="Buildings\Interactable.cs" />
+    <Compile Include="Buildings\OreExporter.cs" />
     <Compile Include="Buildings\StockPile.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Direction.cs" />

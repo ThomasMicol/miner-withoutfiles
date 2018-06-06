@@ -33,7 +33,7 @@ namespace MinerGame
 
         public Rectangle Rectangle
         {
-            get { return new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height); }
+            get { return new Rectangle((int)Position.X - (int)Origin.X, (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height); }
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

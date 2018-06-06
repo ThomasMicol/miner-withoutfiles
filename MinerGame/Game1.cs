@@ -111,7 +111,8 @@ namespace MinerGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            Color bgColor = new Color(76, 55, 37);
+            GraphicsDevice.Clear(bgColor);
             spriteBatch.Begin(transformMatrix: Camera.Transform);
             MyWorld.Draw(gameTime, spriteBatch);
             //foreach(Wall wall in Walls)

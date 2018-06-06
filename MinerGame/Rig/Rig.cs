@@ -33,6 +33,8 @@ namespace MinerGame
             Components.SetTracks(new Track_Stone());
             Components.SetCargo(new Cargo_Stone());
             CalculateMoveSpeed();
+
+            Configure();
         }
 
         public void Move(KeyboardState key, List<Chunk> chunks)
@@ -42,21 +44,25 @@ namespace MinerGame
             {
                 velocity.X -= MoveSpeed;
                 direction = (int)Direction.Left;
+                Rotation = MathHelper.ToRadians(180);
             }
             if (key.IsKeyDown(Keys.D) && PlaceFree(MoveSpeed, 0, chunks))
             {
                 direction = (int)Direction.Right;
                 velocity.X += MoveSpeed;
+                Rotation = MathHelper.ToRadians(0);
             }
             if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
             {
                 velocity.Y -= MoveSpeed;
                 direction = (int)Direction.Up;
+                Rotation = MathHelper.ToRadians(270);
             }
             if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
             {
                 direction = (int)Direction.Down;
                 velocity.Y += MoveSpeed;
+                Rotation = MathHelper.ToRadians(90);
             }
             if (key.IsKeyDown(Keys.Z))
             {
@@ -66,6 +72,12 @@ namespace MinerGame
             Position += velocity;
             Components.SetComponentsPosition();
             Components.GetDrill().Position = Position + Components.GetDrill().GetOffset();
+            SetComponentsOrigin();
+        }
+
+        public void SetComponentsOrigin()
+        {
+            Components.GetDrill().SetRotation(Rotation);
         }
 
         public bool PlaceFree(float x, float y, List<Chunk> chunks)
@@ -125,8 +137,8 @@ namespace MinerGame
                 Position,
                 null,
                 Color.White,
-                0f,
-                Vector2.Zero,
+                Rotation,
+                Origin,
                 1f,
                 SpriteEffects.None, 0f);
 

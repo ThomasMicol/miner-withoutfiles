@@ -12,6 +12,7 @@ namespace MinerGame
     {
         protected Texture2D Texture;
         public Vector2 Position { get; set; }
+        public float Roation { get; set; }
         public Vector2 Origin = new Vector2(0, 0);
         public float Rotation = 0f;
 
@@ -40,14 +41,19 @@ namespace MinerGame
             spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, Origin, 1f, SpriteEffects.None, 0f);
         }
 
-        public void SetOrigin()
-        {
-            Origin = new Vector2(Width / 2, Height / 2);
-        }
-
         public override void Update(GameTime gameTime)
         {
 
+        }
+        public void Configure()
+        {
+            Origin = new Vector2(Width / 2, Height / 2);
+            Rotation = 0f;
+        }
+
+        public void SetRotation(float rot)
+        {
+            Rotation = rot;
         }
     }
 }

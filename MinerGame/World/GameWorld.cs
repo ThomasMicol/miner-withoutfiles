@@ -58,12 +58,22 @@ namespace MinerGame
             // kris will do this
 
             Rectangle PlayerMask = Player.Rectangle;
+            Rectangle PlayerDrillMask = Player.GetComponents().GetDrill().Rectangle;
             foreach(Chunk chunk in MyChunks)
             {
+                List<ITile> walls = chunk.GetTiles();
                 Rectangle ChunkMask = chunk.GetRectangle();
                 if (PlayerMask.Intersects(ChunkMask))
                 {
                     Player.SetChunk(chunk);
+                }
+
+                for(int i = 0; i < walls.Count; i ++ )
+                {
+                    if ( walls[i].Rectangle().Intersects(PlayerDrillMask) )
+                    {
+                        Player.DrillWall(walls[i], walls);
+                    }
                 }
             }
             /*for(int i = 0; i < Tiles.Count; i ++)

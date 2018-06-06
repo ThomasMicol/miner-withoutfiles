@@ -83,8 +83,8 @@ namespace MinerGame
             else Drilling = false;
             Position += velocity;
             Components.SetComponentsPosition();
-            Components.GetDrill().Position = Position + Components.GetDrill().GetOffset();
             SetComponentsOrigin();
+            SetDrillPosition();
         }
 
         public void SetComponentsOrigin()
@@ -106,8 +106,6 @@ namespace MinerGame
                 {
                     if ( RigMask.Intersects(tile.Rectangle()) )
                     {
-                        DrillWall(tile);
-                        // temp destroy wall
                         return false;
                     }
                 }
@@ -122,31 +120,37 @@ namespace MinerGame
 
         public void SetDrillPosition()
         {
+            Drill _targetDrill = Components.GetDrill();
+            Vector2 _targetDrillOffset = _targetDrill.GetOffset();
             if (Direction == Direction.Right )
             {
+                _targetDrill.Position = Position + _targetDrillOffset;
+            }
 
+            else if (Direction == Direction.Left)
+            {
+                _targetDrill.Position = Position - _targetDrillOffset;
+            }
+
+            else if (Direction == Direction.Up)
+            {
+                Vector2 flip = new Vector2(_targetDrillOffset.Y + 2, _targetDrillOffset.X);
+                _targetDrill.Position = Position - flip;
+            }
+
+            else if (Direction == Direction.Down)
+            {
+                Vector2 flip = new Vector2(_targetDrillOffset.Y + 2, _targetDrillOffset.X);
+                _targetDrill.Position = Position + flip;
             }
         }
-        public void DrillWall(ITile tile)
+        public void DrillWall(ITile tile, List<ITile> tiles)
         {
-            if (Direction == Direction.Right )
+            tile.ReduceHealth(5);
+            if ( tile.GetHealth() <= 0)
             {
-                if ( tile.GetPosition().X > Position.X )
-                {
-                    List<ITile> tiles = Chunk.GetTiles();
-                    for (int i = 0; i < tiles.Count; i++)
-                    {
-                        if (tiles[i] == tile)
-                        {
-                            tiles[i].ReduceHealth(10);
-                            if (tiles[i].GetHealth() <= 0)
-                            {
-                                Components.GetCargo().GetInventory().AddItem(tiles[i].GetDrop());
-                                tiles.RemoveAt(i);
-                            }
-                        }
-                    }
-                }
+                Components.GetCargo().GetInventory().AddItem(tile.GetDrop());
+                tiles.Remove(tile);
             }
         }
 

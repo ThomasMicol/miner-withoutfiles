@@ -54,32 +54,24 @@ namespace MinerGame
             }
             if (key.IsKeyDown(Keys.A))
             {
-                
-                Direction = (int)Direction.Left;
-                Rotation = MathHelper.ToRadians(180);
+
+                SetDirectionAndRotation(Direction.Left, 180);
                 if (PlaceFree(-MoveSpeed, 0, chunks)) velocity.X -= MoveSpeed;
             }
             if (key.IsKeyDown(Keys.D) )
             {
-                Direction = Direction.Right;
-                Rotation = MathHelper.ToRadians(0);
+               SetDirectionAndRotation(Direction.Right, 0);
                 if ( PlaceFree(MoveSpeed, 0, chunks) ) velocity.X += MoveSpeed;
             }
             if (key.IsKeyDown(Keys.W))
             {
-                Direction = Direction.Up;
-                Rotation = MathHelper.ToRadians(270);
+                SetDirectionAndRotation(Direction.Up, 270);
                 if (PlaceFree(0, -MoveSpeed, chunks)) velocity.Y -= MoveSpeed;
             }
             if (key.IsKeyDown(Keys.S))
             {
-                Direction = Direction.Down;
-                Rotation = MathHelper.ToRadians(90);
+                SetDirectionAndRotation(Direction.Down, 90);
                 if (PlaceFree(0, MoveSpeed, chunks)) velocity.Y += MoveSpeed;
-            }
-            if (key.IsKeyDown(Keys.Z))
-            {
-                Drilling = true;
             }
             else Drilling = false;
             Position += velocity;
@@ -88,6 +80,11 @@ namespace MinerGame
             SetDrillPosition();
         }
 
+        public void SetDirectionAndRotation(Direction direction, float rotation)
+        {
+            Direction = direction;
+            Rotation = MathHelper.ToRadians(rotation);
+        }
         public void SetComponentsOrigin()
         {
             Components.GetDrill().SetRotation(Rotation);

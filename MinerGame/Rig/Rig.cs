@@ -20,7 +20,7 @@ namespace MinerGame
         public float MoveSpeed = 2f;
         protected bool Drilling = false;
         protected Chunk Chunk;
-        int direction;
+        Direction Direction;
 
 
         public Rig()
@@ -55,24 +55,24 @@ namespace MinerGame
             if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
             {
                 velocity.X -= MoveSpeed;
-                direction = (int)Direction.Left;
+                Direction = (int)Direction.Left;
                 Rotation = MathHelper.ToRadians(180);
             }
             if (key.IsKeyDown(Keys.D) && PlaceFree(MoveSpeed, 0, chunks))
             {
-                direction = (int)Direction.Right;
+                Direction = Direction.Right;
                 velocity.X += MoveSpeed;
                 Rotation = MathHelper.ToRadians(0);
             }
             if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
             {
                 velocity.Y -= MoveSpeed;
-                direction = (int)Direction.Up;
+                Direction = Direction.Up;
                 Rotation = MathHelper.ToRadians(270);
             }
             if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
             {
-                direction = (int)Direction.Down;
+                Direction = Direction.Down;
                 velocity.Y += MoveSpeed;
                 Rotation = MathHelper.ToRadians(90);
             }
@@ -120,9 +120,16 @@ namespace MinerGame
             MoveSpeed = Components.GetTracks().GetSpeed();
         }
 
+        public void SetDrillPosition()
+        {
+            if (Direction == Direction.Right )
+            {
+
+            }
+        }
         public void DrillWall(ITile tile)
         {
-            if ( direction == (int)Direction.Right )
+            if (Direction == Direction.Right )
             {
                 if ( tile.GetPosition().X > Position.X )
                 {

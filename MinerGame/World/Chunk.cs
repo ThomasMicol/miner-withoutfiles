@@ -15,17 +15,18 @@ namespace MinerGame
         protected Rectangle Rectangle;
         protected int ScreenHeight;
         protected int ScreenWidth;
-        protected int Height = 16;
-        protected int Width = 16;
-        protected int TileWidth = 16;
-        protected int TileHeight = 16;
+        protected int Height = 24;
+        protected int Width = 24;
+        protected int TileWidth = 24;
+        protected int TileSize = 24;
+        protected int TileHeight = 24;
 
         public Chunk(Vector2 aPos)
         {
             ScreenWidth = 320;
             ScreenHeight = 240;
-            Width = ScreenWidth / 16;
-            Height = ScreenHeight / 16;
+            Width = ScreenWidth / TileSize;
+            Height = ScreenHeight / TileSize;
             Position = aPos;
             GenerateChunkMask();
             GenerateChunkContent();
@@ -65,7 +66,7 @@ namespace MinerGame
                     seed = rnd.Next(0,100);
                     if (seed <= 1)
                     {
-                        Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                        Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (TileSize * x), (Position.Y * ScreenHeight) + (TileSize * y));
                         ITile tile = new MineableSilver(TilePosition);
                         MyTiles.Add(tile);
                     }
@@ -73,7 +74,7 @@ namespace MinerGame
                     {
                         if (seed <= 3)
                         {
-                            Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                            Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (TileSize * x), (Position.Y * ScreenHeight) + (TileSize * y));
                             ITile tile = new MineableIron(TilePosition);
                             MyTiles.Add(tile);
                         }
@@ -81,7 +82,7 @@ namespace MinerGame
                         {
                             if (seed <= 6)
                             {
-                                Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                                Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (TileSize * x), (Position.Y * ScreenHeight) + (TileSize * y));
                                 ITile tile = new MineableCoal(TilePosition);
                                 MyTiles.Add(tile);
                             }
@@ -89,7 +90,7 @@ namespace MinerGame
                             {
                                 if (seed > 6)
                                 {
-                                    Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                                    Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (TileSize * x), (Position.Y * ScreenHeight) + (TileSize * y));
                                     ITile tile = new Wall(TilePosition);
                                     MyTiles.Add(tile);
                                 }

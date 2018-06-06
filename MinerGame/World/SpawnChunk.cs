@@ -18,12 +18,12 @@ namespace MinerGame.World
             {   
                 for (int y = 0; y < Height; y++)
                 {
-                    Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (16 * x), (Position.Y * ScreenHeight) + (16 * y));
+                    Vector2 TilePosition = new Vector2((Position.X * ScreenWidth) + (TileSize * x), (Position.Y * ScreenHeight) + (TileSize * y));
                     ITile tile = new Wall(TilePosition);
                     MyTiles.Add(tile);
                 }
             }
-            CreateRoom(10, 10, new Vector2(32, 32));
+            CreateRoom(6, 6, new Vector2(32, 32));
 
             return;
         }
@@ -32,16 +32,16 @@ namespace MinerGame.World
         {
             // Find center of 'chunk'
             int cX, cY;
-            cX = (int)Math.Floor((decimal)ScreenWidth / 16) / 2;
-            cY = (int)Math.Floor((decimal)ScreenHeight / 16) / 2;
+            cX = (int)Math.Floor((decimal)ScreenWidth / TileSize) / 2;
+            cY = (int)Math.Floor((decimal)ScreenHeight / TileSize) / 2;
             cX -= width / 2;
             cY -= height / 2;
-            startPos = new Vector2(cX * 16, cY * 16);
+            startPos = new Vector2(cX * TileSize, cY * TileSize);
             for (int i = 0; i < width; i++)
             {
                 for (int h = 0; h < height; h++)
                 {
-                    Rectangle Mask = new Rectangle((int)startPos.X + (16 * i), (int)startPos.Y + (16 * h), 16, 16);
+                    Rectangle Mask = new Rectangle((int)startPos.X + (TileSize * i), (int)startPos.Y + (TileSize * h), TileSize, TileSize);
                     Wall targetWall = (Wall)MyTiles.Where(aWall => aWall.GetPosition().X == Mask.X && aWall.GetPosition().Y == Mask.Y).FirstOrDefault();
                     MyTiles.Remove(targetWall);
                 }

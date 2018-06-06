@@ -54,7 +54,6 @@ namespace MinerGame
             }
             if (key.IsKeyDown(Keys.A))
             {
-
                 SetDirectionAndRotation(Direction.Left, 180);
                 if (PlaceFree(-MoveSpeed, 0, chunks)) velocity.X -= MoveSpeed;
             }
@@ -90,6 +89,10 @@ namespace MinerGame
             Components.GetDrill().SetRotation(Rotation);
         }
 
+        public Chunk GetCurrentChunk()
+        {
+            return Chunk;
+        }
         public bool PlaceFree(float x, float y, List<Chunk> chunks)
         {
             Rectangle RigMask = Rectangle;

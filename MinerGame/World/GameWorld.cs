@@ -24,10 +24,8 @@ namespace MinerGame
             GenerateWorld();
             Player = new Rig();
             cursor = new Cursor();
-            StockPile = new StockPile(new Vector2(Player.GetPosition().X - 20, Player.GetPosition().Y - 18));
             MyDrawables.Add(Player);
             MyDrawables.Add(cursor);
-            MyDrawables.Add(StockPile);
         }
 
         public void Draw(GameTime aTime, SpriteBatch batch)
@@ -44,7 +42,7 @@ namespace MinerGame
 
         private void UpdateRig(GameTime gameTime)
         {
-            Player.Move(currentKeyboardState, MyChunks);
+            Player.Update(currentKeyboardState, MyChunks);
         }
 
         public void Update(GameTime gameTime)

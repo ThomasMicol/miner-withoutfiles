@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace MinerGame.Buildings
 {
-    class Buildable : Sprite
+    class Buildable : Interactable
     {
         protected Rectangle Mask;
+
+        public override void Interact()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

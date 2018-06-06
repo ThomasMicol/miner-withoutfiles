@@ -15,5 +15,10 @@ namespace MinerGame.Buildings
             Texture = Context.Content.Load<Texture2D>("sprites/sBuilding_StockPile");
             Position = aPosition;
         }
+
+        public override void Interact()
+        {
+            Console.WriteLine("you store your stuff");
+        }
     }
 }

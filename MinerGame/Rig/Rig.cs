@@ -52,29 +52,30 @@ namespace MinerGame
                     }
                 }
             }
-            if (key.IsKeyDown(Keys.A) && PlaceFree(-MoveSpeed, 0, chunks))
+            if (key.IsKeyDown(Keys.A))
             {
-                velocity.X -= MoveSpeed;
+                
                 Direction = (int)Direction.Left;
                 Rotation = MathHelper.ToRadians(180);
+                if (PlaceFree(-MoveSpeed, 0, chunks)) velocity.X -= MoveSpeed;
             }
-            if (key.IsKeyDown(Keys.D) && PlaceFree(MoveSpeed, 0, chunks))
+            if (key.IsKeyDown(Keys.D) )
             {
                 Direction = Direction.Right;
-                velocity.X += MoveSpeed;
                 Rotation = MathHelper.ToRadians(0);
+                if ( PlaceFree(MoveSpeed, 0, chunks) ) velocity.X += MoveSpeed;
             }
-            if (key.IsKeyDown(Keys.W) && PlaceFree(0, -MoveSpeed, chunks))
+            if (key.IsKeyDown(Keys.W))
             {
-                velocity.Y -= MoveSpeed;
                 Direction = Direction.Up;
                 Rotation = MathHelper.ToRadians(270);
+                if (PlaceFree(0, -MoveSpeed, chunks)) velocity.Y -= MoveSpeed;
             }
-            if (key.IsKeyDown(Keys.S) && PlaceFree(0, MoveSpeed, chunks))
+            if (key.IsKeyDown(Keys.S))
             {
                 Direction = Direction.Down;
-                velocity.Y += MoveSpeed;
                 Rotation = MathHelper.ToRadians(90);
+                if (PlaceFree(0, MoveSpeed, chunks)) velocity.Y += MoveSpeed;
             }
             if (key.IsKeyDown(Keys.Z))
             {

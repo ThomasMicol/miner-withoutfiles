@@ -29,7 +29,7 @@ namespace MinerGame.World.Tiles.Ore_Tiles
 
         public void ReduceHealth(int value)
         {
-            Health -= 1;
+            Health -= value;
         }
 
         Rectangle ITile.Rectangle()

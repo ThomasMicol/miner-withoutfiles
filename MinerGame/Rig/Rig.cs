@@ -147,7 +147,7 @@ namespace MinerGame
         }
         public void DrillWall(ITile tile, List<ITile> tiles)
         {
-            tile.ReduceHealth(5);
+            tile.ReduceHealth(2);
             if ( tile.GetHealth() <= 0)
             {
                 Components.GetCargo().GetInventory().AddItem(tile.GetDrop());
@@ -168,12 +168,6 @@ namespace MinerGame
 
             Components.DrawComponents(aTime, batch);
         }
-
-        public bool GetDrilling()
-        {
-            return Drilling;
-        }
-
         public RigComponentController GetComponents()
         {
             return Components;

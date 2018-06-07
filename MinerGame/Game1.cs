@@ -115,27 +115,12 @@ namespace MinerGame
             GraphicsDevice.Clear(bgColor);
             spriteBatch.Begin(transformMatrix: Camera.Transform);
             MyWorld.Draw(gameTime, spriteBatch);
-            //foreach(Wall wall in Walls)
-            //{
-            //    wall.Draw(gameTime, spriteBatch);
-            //}
-            //player.Draw(gameTime, spriteBatch);
-            //player.GetDrill().Draw(gameTime, spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
         private void CollisionChecks()
         {
-            /*Rectangle DrillHitMask = player.GetDrill().Rectangle;
-            for(int i = 0; i < Walls.Count; i ++)
-            {
-                Wall wall = Walls[i];
-                Rectangle wallHitBox = new Rectangle((int)wall.Position.X, (int)wall.Position.Y, wall.Width, wall.Height);
-                if (wallHitBox.Intersects(DrillHitMask))
-                {
-                    Walls.RemoveAt(i);
-                }
-            }*/
+
         }
     }
 }

@@ -26,5 +26,10 @@ namespace MinerGame
                 0);
             Transform = position * offset;
         }
+
+        public void draw(SpriteBatch spriteBatch)
+        {
+
+        }
     }
 }

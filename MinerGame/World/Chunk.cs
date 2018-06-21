@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MinerGame.Buildings;
 using MinerGame.World.Tiles;
 using MinerGame.World.Tiles.Ore_Tiles;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MinerGame
 {

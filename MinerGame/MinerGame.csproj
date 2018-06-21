@@ -41,12 +41,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Interactable\Buildings\Buildable.cs" />
-    <Compile Include="Interactable\Interactable.cs" />
-    <Compile Include="Interactable\Buildings\OreExporter.cs" />
-    <Compile Include="Interactable\Buildings\StockPile.cs" />
+    <Compile Include="InteractableEntities\Buildings\Buildable.cs" />
+    <Compile Include="InteractableEntities\Interactable UI\Buildings\BuildingUI.cs" />
+    <Compile Include="InteractableEntities\Interactable UI\Buildings\StockPileUI.cs" />
+    <Compile Include="InteractableEntities\Interactable.cs" />
+    <Compile Include="InteractableEntities\Buildings\OreExporter.cs" />
+    <Compile Include="InteractableEntities\Buildings\StockPile.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="InteractableEntities\Interactable UI\UIInteractable.cs" />
     <Compile Include="Items\Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\Item_Iron.cs" />
@@ -90,6 +93,9 @@
     <Compile Include="World\Tiles\ITile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DataTypes">
+      <HintPath>C:\Users\Thomas\Downloads\GeonBit.UI-master\GeonBit.UI\Libs\DataTypes\bin\DesktopGL\AnyCPU\Release\DataTypes.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -104,7 +110,8 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interactable\People\" />
+    <Folder Include="InteractableEntities\Interactable UI\People\" />
+    <Folder Include="InteractableEntities\People\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
